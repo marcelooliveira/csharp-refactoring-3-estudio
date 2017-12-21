@@ -10,13 +10,13 @@ namespace refatoracao.R41.AddParameter.depois
         {
             var descontoCliente1 =
                 new CalculadoraDePrecos()
-                .GetDescontoFinal(23, 10, 3);
+                .GetDescontoFinal(23, 10, 3, false);
 
             Console.WriteLine($"Desconto final: {descontoCliente1}");
 
             var descontoCliente2 =
                 new CalculadoraDePrecos()
-                .GetDescontoFinal(30, 4, 5); //Mas este cliente é negativado!
+                .GetDescontoFinal(30, 4, 5, true); //Mas este cliente é negativado!
 
             Console.WriteLine($"Desconto final: {descontoCliente2}");
         }
@@ -31,8 +31,13 @@ namespace refatoracao.R41.AddParameter.depois
         private const decimal INCREMENTO_DESCONTO_POR_QUANTIDADE = 15m;
         private const decimal INCREMENTO_DESCONTO_POR_TEMPO = 10m;
 
-        public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos)
+        public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos, bool clienteNegativado)
         {
+            if (clienteNegativado)
+            {
+                return 0;
+            }
+
             var result = descontoInicial;
             if (descontoInicial > LIMITE_MAXIMO_DESCONTO_INICIAL)
             {

@@ -8,32 +8,74 @@ namespace refatoracao.R40.RenameMethod.depois
     {
         void Main()
         {
-            var credito = new Credito("Walter White", 10000, 9700);
-            Console.WriteLine($"Crédito disponível - Nome: {credito.NomeCliente}, " +
-                $"Valor: {credito.GetCreditoDisponivel()}");
+            var cliente1 = new PessoaFisica("Walter White", new Credito(10000, 9700));
+            var cliente2 = new PessoaJuridica("Los Pollos Hermanos", new Credito(20000, 15000));
+
+            Console.WriteLine($"Crédito disponível - Nome: {cliente1.Nome}, " +
+                $"Valor: {cliente1.ObterCreditoDisponivel()}");
+
+            Console.WriteLine($"Crédito disponível - Nome: {cliente2.Nome}, " +
+                $"Valor: {cliente2.GetCreditoDisponivel()}");
+        }
+    }
+
+    class PessoaFisica
+    {
+        private readonly string nome;
+        public string Nome => nome;
+
+        private readonly Credito credito;
+        internal Credito Credito => credito;
+
+        public PessoaFisica(string nome, Credito credito)
+        {
+            this.nome = nome;
+            this.credito = credito;
+        }
+
+        public decimal ObterCreditoDisponivel()
+        {
+            return credito.GetValor();
+        }
+    }
+
+    class PessoaJuridica
+    {
+        private readonly string nome;
+        public string Nome => nome;
+
+        private readonly Credito credito;
+        internal Credito Credito => credito;
+
+        public PessoaJuridica(string nome, Credito credito)
+        {
+            this.nome = nome;
+            this.credito = credito;
+        }
+
+        public decimal GetCreditoDisponivel()
+        {
+            return credito.GetValor();
         }
     }
 
     class Credito
     {
-        readonly string nomeCliente;
-        public string NomeCliente => nomeCliente;
-
         readonly decimal creditoTotal;
         public decimal CreditoTotal => creditoTotal;
 
         readonly decimal creditoUtilizado;
         public decimal CreditoUtilizado => creditoUtilizado;
 
-        public Credito(string nomeCliente, decimal creditoTotal, decimal creditoUtilizado)
+        public Credito(decimal creditoTotal, decimal creditoUtilizado)
         {
-            this.nomeCliente = nomeCliente;
             this.creditoTotal = creditoTotal;
             this.creditoUtilizado = creditoUtilizado;
         }
 
-        public decimal GetCreditoDisponivel()
+        public decimal GetValor()
         {
+            //Obtém o valor do crédito disponível
             return this.creditoTotal - this.creditoUtilizado;
         }
     }

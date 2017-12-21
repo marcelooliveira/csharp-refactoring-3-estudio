@@ -49,11 +49,17 @@
     <Compile Include="Aula1\R41.AddParameter\depois\CalculadoraDePrecos.cs" />
     <Compile Include="Aula1\R42.RemoveParameter\antes\CalculadoraDePrecos.cs" />
     <Compile Include="Aula1\R42.RemoveParameter\depois\CalculadoraDePrecos.cs" />
+    <Compile Include="Aula1\R43.SeparateQueryFromModifier\antes\Cliente.cs" />
+    <Compile Include="Aula1\R43.SeparateQueryFromModifier\depois\Cliente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Aula1\R43.SeparateQueryFromModifier\antes\SeparateQueryFromModifier.png" />
+    <Content Include="Aula1\R43.SeparateQueryFromModifier\depois\SeparateQueryFromModifier2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

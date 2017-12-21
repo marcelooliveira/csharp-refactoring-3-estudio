@@ -40,29 +40,14 @@ namespace refatoracao.R43.SeparateQueryFromModifier.depois
 
     class Cliente
     {
-        private const int VALOR_NF_CLIENTE_PREMIUM = 10000;
-
         // ...
         public void VerificarNotasFiscais(IList<NotaFiscal> notasFiscais)
         {
-            NotaFiscal nf = ObterNFPremium(notasFiscais);
+            NotaFiscal nf = ObterNFPremiumEEnviarEmail(notasFiscais);
             if (nf != null)
             {
-                EnviarEmailParabens(nf);
                 CriarCartaoPremium(nf);
             }
-        }
-
-        public NotaFiscal ObterNFPremium(IList<NotaFiscal> notasFiscais)
-        {
-            foreach (var nf in notasFiscais)
-            {
-                if (nf.Valor > VALOR_NF_CLIENTE_PREMIUM)
-                {
-                    return nf;
-                }
-            }
-            return null;
         }
 
         public NotaFiscal ObterNFPremiumEEnviarEmail(IList<NotaFiscal> notasFiscais)
@@ -85,7 +70,7 @@ namespace refatoracao.R43.SeparateQueryFromModifier.depois
 
         private void EnviarEmailParabens(NotaFiscal nf)
         {
-            string mensagem = 
+            string mensagem =
                 "Prezado Cliente, " +
                 "Parabéns! Você se tornou Cliente Premium " +
                 "e receberá em breve um cartão exclusivo da nossa loja! " +

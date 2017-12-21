@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Aula1\R40.RenameMethod\antes\Credito.cs" />
     <Compile Include="Aula1\R40.RenameMethod\depois\Credito.cs" />
+    <Compile Include="Aula1\R40.RenameMethod\depois\IPessoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

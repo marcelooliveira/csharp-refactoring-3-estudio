@@ -11,15 +11,17 @@ namespace refatoracao.R40.RenameMethod.depois
             var cliente1 = new PessoaFisica("Walter White", new Credito(10000, 9700));
             var cliente2 = new PessoaJuridica("Los Pollos Hermanos", new Credito(20000, 15000));
 
-            Console.WriteLine($"Crédito disponível - Nome: {cliente1.GetNome()}, " +
-                $"Valor: {cliente1.ObterCreditoDisponivel()}");
+            IList<IPessoa> clientes = new List<IPessoa>() { cliente1, cliente2 };
 
-            Console.WriteLine($"Crédito disponível - Nome: {cliente2.GetRazaoSocial()}, " +
-                $"Valor: {cliente2.GetCreditoDisponivel()}");
+            foreach (var cliente in clientes)
+            {
+                Console.WriteLine($"Crédito disponível - Nome: {cliente.GetNome()}, " +
+                    $"Valor: {cliente.GetCreditoDisponivel()}");
+            }
         }
     }
 
-    class PessoaFisica
+    class PessoaFisica : IPessoa
     {
         private readonly string nome;
 
@@ -37,17 +39,17 @@ namespace refatoracao.R40.RenameMethod.depois
             this.credito = credito;
         }
 
-        public decimal ObterCreditoDisponivel()
+        public decimal GetCreditoDisponivel()
         {
-            return credito.GetValor();
+            return credito.GetCreditoDisponivel();
         }
     }
 
-    class PessoaJuridica
+    class PessoaJuridica : IPessoa
     {
         private readonly string nome;
 
-        public string GetRazaoSocial()
+        public string GetNome()
         {
             return nome;
         }
@@ -63,7 +65,7 @@ namespace refatoracao.R40.RenameMethod.depois
 
         public decimal GetCreditoDisponivel()
         {
-            return credito.GetValor();
+            return credito.GetCreditoDisponivel();
         }
     }
 
@@ -81,9 +83,8 @@ namespace refatoracao.R40.RenameMethod.depois
             this.creditoUtilizado = creditoUtilizado;
         }
 
-        public decimal GetValor()
+        public decimal GetCreditoDisponivel()
         {
-            //Obtém o valor do crédito disponível
             return this.creditoTotal - this.creditoUtilizado;
         }
     }

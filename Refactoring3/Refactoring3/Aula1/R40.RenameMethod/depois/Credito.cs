@@ -11,10 +11,10 @@ namespace refatoracao.R40.RenameMethod.depois
             var cliente1 = new PessoaFisica("Walter White", new Credito(10000, 9700));
             var cliente2 = new PessoaJuridica("Los Pollos Hermanos", new Credito(20000, 15000));
 
-            Console.WriteLine($"Crédito disponível - Nome: {cliente1.Nome}, " +
+            Console.WriteLine($"Crédito disponível - Nome: {cliente1.GetNome()}, " +
                 $"Valor: {cliente1.ObterCreditoDisponivel()}");
 
-            Console.WriteLine($"Crédito disponível - Nome: {cliente2.Nome}, " +
+            Console.WriteLine($"Crédito disponível - Nome: {cliente2.GetRazaoSocial()}, " +
                 $"Valor: {cliente2.GetCreditoDisponivel()}");
         }
     }
@@ -22,7 +22,11 @@ namespace refatoracao.R40.RenameMethod.depois
     class PessoaFisica
     {
         private readonly string nome;
-        public string Nome => nome;
+
+        public string GetNome()
+        {
+            return nome;
+        }
 
         private readonly Credito credito;
         internal Credito Credito => credito;
@@ -42,7 +46,11 @@ namespace refatoracao.R40.RenameMethod.depois
     class PessoaJuridica
     {
         private readonly string nome;
-        public string Nome => nome;
+
+        public string GetRazaoSocial()
+        {
+            return nome;
+        }
 
         private readonly Credito credito;
         internal Credito Credito => credito;

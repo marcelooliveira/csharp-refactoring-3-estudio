@@ -10,7 +10,7 @@ namespace refatoracao.R42.RemoveParameter.depois
         {
             var descontoFinal =
                 new CalculadoraDePrecos()
-                .GetDescontoFinal(23, 3, true);
+                .GetDescontoFinal(23, 10, 3, true);
 
             Console.WriteLine($"Desconto final: {descontoFinal}");
         }
@@ -19,11 +19,13 @@ namespace refatoracao.R42.RemoveParameter.depois
     class CalculadoraDePrecos
     {
         private const decimal LIMITE_MAXIMO_DESCONTO_INICIAL = 50m;
+        private const int LIMITE_MINIMO_QUANTIDADE = 100;
         private const int LIMITE_MINIMO_ANOS_CLIENTE = 4;
         private const decimal DESCONTO_MAXIMO = 50m;
+        private const decimal INCREMENTO_DESCONTO_POR_QUANTIDADE = 15m;
         private const decimal INCREMENTO_DESCONTO_POR_TEMPO = 10m;
 
-        public decimal GetDescontoFinal(decimal descontoInicial, int clienteHaQuantosAnos, bool clienteNegativado)
+        public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos, bool clienteNegativado)
         {
             if (clienteNegativado)
             {

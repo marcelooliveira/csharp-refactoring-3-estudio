@@ -47,6 +47,8 @@
     <Compile Include="Aula1\R40.RenameMethod\depois\IPessoa.cs" />
     <Compile Include="Aula1\R41.AddParameter\antes\CalculadoraDePrecos.cs" />
     <Compile Include="Aula1\R41.AddParameter\depois\CalculadoraDePrecos.cs" />
+    <Compile Include="Aula1\R42.RemoveParameter\antes\CalculadoraDePrecos.cs" />
+    <Compile Include="Aula1\R42.RemoveParameter\depois\CalculadoraDePrecos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

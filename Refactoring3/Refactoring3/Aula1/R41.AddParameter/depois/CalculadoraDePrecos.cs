@@ -16,7 +16,7 @@ namespace refatoracao.R41.AddParameter.depois
 
             var descontoCliente2 =
                 new CalculadoraDePrecos()
-                .GetDescontoFinal(30, 4, 5, true); //agora com parâmetro
+                .GetDescontoFinal(30, 4, 5); //Mas este cliente é negativado!
 
             Console.WriteLine($"Desconto final: {descontoCliente2}");
         }
@@ -33,16 +33,6 @@ namespace refatoracao.R41.AddParameter.depois
 
         public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos)
         {
-            return GetDescontoFinal(descontoInicial, quantidade, clienteHaQuantosAnos, false);
-        }
-
-        public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos, bool clienteNegativado)
-        {
-            if (clienteNegativado)
-            {
-                return 0; //early return
-            }
-
             var result = descontoInicial;
             if (descontoInicial > LIMITE_MAXIMO_DESCONTO_INICIAL)
             {

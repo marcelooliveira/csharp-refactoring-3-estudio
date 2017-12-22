@@ -59,6 +59,8 @@
     <Compile Include="Aula2\R46.PreserveWholeObject\depois\ICMS.cs" />
     <Compile Include="Aula2\R47.ReplaceParameterWMethodCall\antes\Cliente.cs" />
     <Compile Include="Aula2\R47.ReplaceParameterWMethodCall\depois\Cliente.cs" />
+    <Compile Include="Aula2\R48.IntroduceParameterObject\antes\HotelFazenda.cs" />
+    <Compile Include="Aula2\R48.IntroduceParameterObject\depois\HotelFazenda.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -76,6 +78,8 @@
     <Content Include="Aula2\R46.PreserveWholeObject\depois\PreserveWholeObject2.png" />
     <Content Include="Aula2\R47.ReplaceParameterWMethodCall\antes\ReplaceParameterWMethodCall.png" />
     <Content Include="Aula2\R47.ReplaceParameterWMethodCall\depois\ReplaceParameterWMethodCall2.png" />
+    <Content Include="Aula2\R48.IntroduceParameterObject\antes\IntroduceParameterObject.png" />
+    <Content Include="Aula2\R48.IntroduceParameterObject\depois\IntroduceParameterObject2.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

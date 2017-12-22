@@ -12,14 +12,14 @@ namespace refatoracao.R47.ReplaceParameterWMethodCall.antes
             bool clienteNegativado = ServicoDeCredito.VerificaClienteNegativado(cpfCliente);
 
             var descontoCliente =
-                new CalculadoraDePrecos()
+                new Cliente(cpfCliente)
                 .GetDescontoFinal(descontoInicial, quantidade, clienteHaQuantosAnos, clienteNegativado);
 
             Console.WriteLine($"Desconto final: {descontoCliente}");
         }
     }
 
-    class CalculadoraDePrecos
+    class Cliente
     {
         private const decimal LIMITE_MAXIMO_DESCONTO_INICIAL = 50m;
         private const int LIMITE_MINIMO_QUANTIDADE = 100;
@@ -27,6 +27,12 @@ namespace refatoracao.R47.ReplaceParameterWMethodCall.antes
         private const decimal DESCONTO_MAXIMO = 50m;
         private const decimal INCREMENTO_DESCONTO_POR_QUANTIDADE = 15m;
         private const decimal INCREMENTO_DESCONTO_POR_TEMPO = 10m;
+        private readonly string cpfCliente;
+
+        public Cliente(string cpfCliente)
+        {
+            this.cpfCliente = cpfCliente;
+        }
 
         public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos, bool clienteNegativado)
         {

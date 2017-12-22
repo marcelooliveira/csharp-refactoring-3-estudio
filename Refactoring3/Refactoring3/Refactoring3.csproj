@@ -57,6 +57,8 @@
     <Compile Include="Aula2\R45.ReplaceParameterWithExplicitMethods\depois\Funcionario.cs" />
     <Compile Include="Aula2\R46.PreserveWholeObject\antes\ICMS.cs" />
     <Compile Include="Aula2\R46.PreserveWholeObject\depois\ICMS.cs" />
+    <Compile Include="Aula2\R47.ReplaceParameterWMethodCall\antes\Cliente.cs" />
+    <Compile Include="Aula2\R47.ReplaceParameterWMethodCall\depois\Cliente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +74,8 @@
     <Content Include="Aula2\R45.ReplaceParameterWithExplicitMethods\depois\ReplaceParameterWithExplicitMethods2.png" />
     <Content Include="Aula2\R46.PreserveWholeObject\antes\PreserveWholeObject.png" />
     <Content Include="Aula2\R46.PreserveWholeObject\depois\PreserveWholeObject2.png" />
+    <Content Include="Aula2\R47.ReplaceParameterWMethodCall\antes\ReplaceParameterWMethodCall.png" />
+    <Content Include="Aula2\R47.ReplaceParameterWMethodCall\depois\ReplaceParameterWMethodCall2.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -53,6 +53,8 @@
     <Compile Include="Aula1\R43.SeparateQueryFromModifier\depois\Cliente.cs" />
     <Compile Include="Aula2\R44.ParameterizeMethod\antes\Funcionario.cs" />
     <Compile Include="Aula2\R44.ParameterizeMethod\depois\Funcionario.cs" />
+    <Compile Include="Aula2\R45.ReplaceParameterWithExplicitMethods\antes\Funcionario.cs" />
+    <Compile Include="Aula2\R45.ReplaceParameterWithExplicitMethods\depois\Funcionario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,6 +66,8 @@
     <Content Include="Aula1\R43.SeparateQueryFromModifier\depois\SeparateQueryFromModifier2.png" />
     <Content Include="Aula2\R44.ParameterizeMethod\antes\ParameterizeMethod.png" />
     <Content Include="Aula2\R44.ParameterizeMethod\depois\ParameterizeMethod2.png" />
+    <Content Include="Aula2\R45.ReplaceParameterWithExplicitMethods\antes\ReplaceParameterWithExplicitMethods.png" />
+    <Content Include="Aula2\R45.ReplaceParameterWithExplicitMethods\depois\ReplaceParameterWithExplicitMethods2.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

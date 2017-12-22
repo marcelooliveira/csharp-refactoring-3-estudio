@@ -18,8 +18,8 @@ namespace refatoracao.R43.SeparateQueryFromModifier.antes
             };
 
             Cliente cliente = new Cliente();
-
-            cliente.VerificarNotasFiscais(notasFiscais);
+            cliente.Adicionar(notasFiscais);
+            cliente.VerificarNotasFiscais();
         }
     }
 
@@ -40,8 +40,14 @@ namespace refatoracao.R43.SeparateQueryFromModifier.antes
 
     class Cliente
     {
-        // ...
-        public void VerificarNotasFiscais(IList<NotaFiscal> notasFiscais)
+        private List<NotaFiscal> notasFiscais;
+
+        internal void Adicionar(IList<NotaFiscal> notasFiscais)
+        {
+            this.notasFiscais.AddRange(notasFiscais);
+        }
+
+        public void VerificarNotasFiscais()
         {
             NotaFiscal nf = ObterNFPremiumEEnviarEmail(notasFiscais);
             if (nf != null)

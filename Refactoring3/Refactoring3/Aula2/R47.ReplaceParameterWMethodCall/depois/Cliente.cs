@@ -8,12 +8,12 @@ namespace refatoracao.R47.ReplaceParameterWMethodCall.depois
     {
         void Main(decimal descontoInicial, int quantidade, string cpfCliente)
         {
-            int clienteHaQuantosAnos = ServicoDeCredito.ClienteHaQuantosAnos(cpfCliente);
+            int pontuacaoDoCliente = ServicoDeCredito.ClienteHaQuantosAnos(cpfCliente);
             bool clienteNegativado = ServicoDeCredito.VerificaClienteNegativado(cpfCliente);
 
             var descontoCliente =
                 new Cliente(cpfCliente)
-                .GetDescontoFinal(descontoInicial, quantidade, clienteHaQuantosAnos, clienteNegativado);
+                .GetDescontoFinal(descontoInicial, quantidade, pontuacaoDoCliente, clienteNegativado);
 
             Console.WriteLine($"Desconto final: {descontoCliente}");
         }
@@ -23,10 +23,10 @@ namespace refatoracao.R47.ReplaceParameterWMethodCall.depois
     {
         private const decimal LIMITE_MAXIMO_DESCONTO_INICIAL = 50m;
         private const int LIMITE_MINIMO_QUANTIDADE = 100;
-        private const int LIMITE_MINIMO_ANOS_CLIENTE = 4;
+        private const int PONTUACAO_MINIMA_CLIENTE_PREMIUM = 4;
         private const decimal DESCONTO_MAXIMO = 50m;
         private const decimal INCREMENTO_DESCONTO_POR_QUANTIDADE = 15m;
-        private const decimal INCREMENTO_DESCONTO_POR_TEMPO = 10m;
+        private const decimal INCREMENTO_DESCONTO_PREMIUM = 10m;
         private readonly string cpfCliente;
 
         public Cliente(string cpfCliente)
@@ -34,7 +34,7 @@ namespace refatoracao.R47.ReplaceParameterWMethodCall.depois
             this.cpfCliente = cpfCliente;
         }
 
-        public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int clienteHaQuantosAnos, bool clienteNegativado)
+        public decimal GetDescontoFinal(decimal descontoInicial, int quantidade, int pontuacaoDoCliente, bool clienteNegativado)
         {
             if (clienteNegativado)
             {
@@ -50,9 +50,9 @@ namespace refatoracao.R47.ReplaceParameterWMethodCall.depois
             {
                 result += INCREMENTO_DESCONTO_POR_QUANTIDADE;
             }
-            if (clienteHaQuantosAnos > LIMITE_MINIMO_ANOS_CLIENTE)
+            if (pontuacaoDoCliente > PONTUACAO_MINIMA_CLIENTE_PREMIUM)
             {
-                result += INCREMENTO_DESCONTO_POR_TEMPO;
+                result += INCREMENTO_DESCONTO_PREMIUM;
             }
             return result;
         }

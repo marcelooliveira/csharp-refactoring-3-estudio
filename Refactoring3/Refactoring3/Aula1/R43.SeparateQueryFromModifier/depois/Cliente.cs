@@ -40,6 +40,7 @@ namespace refatoracao.R43.SeparateQueryFromModifier.depois
 
     class Cliente
     {
+        private const int VALOR_MINIMO_NF_PREMIUM = 10000;
         private List<NotaFiscal> notasFiscais;
 
         internal void Adicionar(IList<NotaFiscal> notasFiscais)
@@ -49,20 +50,20 @@ namespace refatoracao.R43.SeparateQueryFromModifier.depois
 
         public void VerificarNotasFiscais()
         {
-            NotaFiscal nf = ObterNFPremiumEEnviarEmail(notasFiscais);
+            NotaFiscal nf = ObterNFPremium(notasFiscais);
             if (nf != null)
             {
+                EnviarEmailParabens(nf);
                 CriarCartaoPremium(nf);
             }
         }
 
-        public NotaFiscal ObterNFPremiumEEnviarEmail(IList<NotaFiscal> notasFiscais)
+        public NotaFiscal ObterNFPremium(IList<NotaFiscal> notasFiscais)
         {
             foreach (var nf in notasFiscais)
             {
-                if (nf.Valor > 10000)
+                if (nf.Valor > VALOR_MINIMO_NF_PREMIUM)
                 {
-                    EnviarEmailParabens(nf);
                     return nf;
                 }
             }

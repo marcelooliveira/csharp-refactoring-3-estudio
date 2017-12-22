@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace refatoracao.R48.IntroduceParameterObject.antes
+namespace refatoracao.R48.IntroduceParameterObject.depois
 {
     class Programa
     {

@@ -1,75 +1,77 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace refatoracao.R53.ReplaceExceptionwithTest.antes
 {
-    class Programa
+    class Program
     {
         void Main()
         {
-            var segurado = new Segurado();
-            segurado.CumprindoCarencia = true;
-            segurado.MensalidadesAtrasadas = 2;
-            segurado.MesesSemSinistro = 3;
+            var contaCorrente = new ContaCorrente(1000);
 
-            decimal seguroAReceber = 0;
-
-            try
-            {
-                segurado.ValorSeguroAReceber();
-            }
-            catch 
-            {
-            }
-
-            Console.WriteLine($"Valor do seguro: {seguroAReceber}");
+            var saldoInicialAnoAtual = contaCorrente.GetSaldoInicioAno(DateTime.Now.Year);
         }
     }
 
-    class Segurado
+    class ContaCorrente
     {
-        bool cumprindoCarencia;
-        public bool CumprindoCarencia
+        private static int ultimoId = 0;
+        private int id;
+        private decimal saldo;
+        private IDictionary<int, decimal> saldosIniciais 
+            = new Dictionary<int, decimal>();
+
+        public ContaCorrente(decimal saldo)
         {
-            get => cumprindoCarencia;
-            set => cumprindoCarencia = value;
+            this.id = GetNewId();
+            this.saldo = saldo;
+
+            RegistrarSaldo();
         }
 
-        int mensalidadesAtrasadas;
-        public int MensalidadesAtrasadas
+
+        private static int GetNewId()
         {
-            get => mensalidadesAtrasadas;
-            set => mensalidadesAtrasadas = value;
+            return ultimoId++;
         }
 
-        int mesesSemSinistro;
-        public int MesesSemSinistro
+        private void Depositar(decimal valor)
         {
-            get => mesesSemSinistro;
-            set => mesesSemSinistro = value;
+            saldo += valor;
+            RegistrarSaldo();
         }
 
-        public decimal ValorSeguroAReceber()
+        private void Sacar(decimal valor)
         {
-            if (NaoEhElegivelParaSeguro())
+            if (valor > saldo)
             {
-                throw new Exception("Segurado não é elegível para receber seguro");
+                throw new ArgumentException("Saldo insuficiente.");
             }
-
-            decimal resultado = 0;
-
-            //
-            //Aqui é calculado o valor do seguro...
-            //
-            return resultado;
+            saldo -= valor;
+            RegistrarSaldo();
         }
 
-        private bool NaoEhElegivelParaSeguro()
+        private void RegistrarSaldo()
         {
-            return cumprindoCarencia 
-                || mensalidadesAtrasadas > 1 
-                || mesesSemSinistro < 12;
+            if (!this.saldosIniciais.ContainsKey(DateTime.Now.Year))
+            {
+                this.saldosIniciais.Add(DateTime.Now.Year, this.saldo);
+            }
+        }
+
+        public decimal GetSaldoInicioAno(int ano)
+        {
+            try
+            {
+                return saldosIniciais[ano];
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return 0;
+            }
         }
     }
 }

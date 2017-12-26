@@ -52,7 +52,7 @@ namespace refatoracao.R50.HideMethod.depois
             return dias * _taxaInverno + _taxaServicoInverno;
         }
 
-        private bool NaoEhVerao(DateTime data)
+        public bool NaoEhVerao(DateTime data)
         {
             return data.EhAntesDe(INICIO_VERAO) || data.EhDepoisDe(FIM_VERAO);
         }

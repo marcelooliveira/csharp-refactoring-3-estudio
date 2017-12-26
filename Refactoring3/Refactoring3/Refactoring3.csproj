@@ -67,6 +67,8 @@
     <Compile Include="Aula3\R50.HideMethod\depois\HotelFazenda.cs" />
     <Compile Include="Aula3\R51.ReplaceConstructorWithFactoryMethod\antes\Funcionario.cs" />
     <Compile Include="Aula3\R51.ReplaceConstructorWithFactoryMethod\depois\Funcionario.cs" />
+    <Compile Include="Aula3\R52.ReplaceErrorCodeWithException\antes\ContaBancaria.cs" />
+    <Compile Include="Aula3\R52.ReplaceErrorCodeWithException\depois\ContaBancaria.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +92,8 @@
     <Content Include="Aula3\R50.HideMethod\depois\HideMethod2.png" />
     <Content Include="Aula3\R51.ReplaceConstructorWithFactoryMethod\antes\ReplaceConstructorWithFactoryMethod.png" />
     <Content Include="Aula3\R51.ReplaceConstructorWithFactoryMethod\depois\ReplaceConstructorWithFactoryMethod2.png" />
+    <Content Include="Aula3\R52.ReplaceErrorCodeWithException\antes\ReplaceErrorCodeWithException.png" />
+    <Content Include="Aula3\R52.ReplaceErrorCodeWithException\depois\ReplaceErrorCodeWithException2.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

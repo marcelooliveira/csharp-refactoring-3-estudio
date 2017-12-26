@@ -30,7 +30,7 @@ namespace Refactoring3.Aula3.R49.RemoveSettingMethod.depois
 
         private void Depositar(decimal valor)
         {
-            saldo = -valor;
+            saldo += valor;
         }
 
         private void Sacar(decimal valor)
@@ -39,7 +39,7 @@ namespace Refactoring3.Aula3.R49.RemoveSettingMethod.depois
             {
                 throw new ArgumentException("Saldo insuficiente.");
             }
-            saldo = -valor;
+            saldo -= valor;
         }
     }
 }

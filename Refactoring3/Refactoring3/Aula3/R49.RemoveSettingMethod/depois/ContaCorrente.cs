@@ -18,6 +18,11 @@ namespace Refactoring3.Aula3.R49.RemoveSettingMethod.depois
             this.saldo = saldo;
         }
 
+        public void SetSaldo(decimal saldo)
+        {
+            this.saldo = saldo;
+        }
+
         private static int GetNewId()
         {
             return ultimoId++;

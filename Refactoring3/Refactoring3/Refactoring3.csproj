@@ -69,8 +69,8 @@
     <Compile Include="Aula3\R51.ReplaceConstructorWithFactoryMethod\depois\Funcionario.cs" />
     <Compile Include="Aula3\R52.ReplaceErrorCodeWithException\antes\ContaBancaria.cs" />
     <Compile Include="Aula3\R52.ReplaceErrorCodeWithException\depois\ContaBancaria.cs" />
-    <Compile Include="Aula3\R53.ReplaceExceptionwithTest\antes\Segurado.cs" />
-    <Compile Include="Aula3\R53.ReplaceExceptionwithTest\depois\Segurado.cs" />
+    <Compile Include="Aula3\R53.ReplaceExceptionwithTest\antes\ContaCorrente.cs" />
+    <Compile Include="Aula3\R53.ReplaceExceptionwithTest\depois\ContaCorrente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

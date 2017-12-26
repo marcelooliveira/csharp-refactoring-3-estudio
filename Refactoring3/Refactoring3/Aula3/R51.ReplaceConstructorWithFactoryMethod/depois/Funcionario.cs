@@ -8,44 +8,74 @@ namespace refatoracao.R51.ReplaceConstructorWithFactoryMethod.depois
     {
         void Main()
         {
-            Funcionario funcionario = Funcionario.CriarFuncionario("José da Silva", 1000);
+            Funcionario funcionario = new Funcionario(TipoFuncionario.Engenheiro,
+                "José da Silva", 1000);
         }
+    }
+
+    enum TipoFuncionario
+    {
+        Vendedor = 0,
+        Gerente = 1,
+        Engenheiro = 2
     }
 
     class Funcionario
     {
+
+        readonly TipoFuncionario tipo;
+        public TipoFuncionario Tipo => tipo;
+
         readonly string nome;
         public string Nome => nome;
 
         readonly decimal salario;
         public decimal Salario => salario;
 
-        private Funcionario(string nome, decimal salario)
+        public Funcionario(TipoFuncionario tipo, string nome, decimal salario)
         {
+            this.tipo = tipo;
             this.nome = nome;
             this.salario = salario;
+
+            LancarRegistrosNoBancoDeDados();
+            GerarDocumentosFiscais();
+            EnviarEmailDeBoasVindas();
+
+            switch (tipo)
+            {
+                case TipoFuncionario.Vendedor:
+                    GerarRegistroDeComissao();
+                    break;
+                case TipoFuncionario.Gerente:
+                    GerarRegistroDeBonus();
+                    break;
+                default:
+                    break;
+            }
         }
 
-        public static Funcionario CriarFuncionario(string nome, decimal salario)
-        {
-            Funcionario funcionario = new Funcionario(nome, salario);
-            LancarRegistrosNoBancoDeDados(funcionario);
-            GerarDocumentosFiscais(funcionario);
-            EnviarEmailDeBoasVindas(funcionario);
-            return funcionario;
-        }
-
-        private static void EnviarEmailDeBoasVindas(Funcionario funcionario)
+        private void GerarRegistroDeBonus()
         {
             //método criado apenas para ilustração
         }
 
-        private static void GerarDocumentosFiscais(Funcionario funcionario)
+        private void GerarRegistroDeComissao()
         {
             //método criado apenas para ilustração
         }
 
-        private static void LancarRegistrosNoBancoDeDados(Funcionario funcionario)
+        private void EnviarEmailDeBoasVindas()
+        {
+            //método criado apenas para ilustração
+        }
+
+        private void GerarDocumentosFiscais()
+        {
+            //método criado apenas para ilustração
+        }
+
+        private void LancarRegistrosNoBancoDeDados()
         {
             //método criado apenas para ilustração
         }

@@ -61,6 +61,8 @@
     <Compile Include="Aula2\R47.ReplaceParameterWMethodCall\depois\Cliente.cs" />
     <Compile Include="Aula2\R48.IntroduceParameterObject\antes\HotelFazenda.cs" />
     <Compile Include="Aula2\R48.IntroduceParameterObject\depois\HotelFazenda.cs" />
+    <Compile Include="Aula3\R49.RemoveSettingMethod\antes\ContaCorrente.cs" />
+    <Compile Include="Aula3\R49.RemoveSettingMethod\depois\ContaCorrente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -22,9 +22,13 @@ namespace refatoracao.R52.ReplaceErrorCodeWithException.depois
                     "Poupança não podem ser nulos");
             }
 
-            if (contaCorrente.Sacar(valor) == -1)
+            try
             {
-                throw new ArgumentException("Saldo insuficiente");
+                contaCorrente.Sacar(valor);
+            }
+            catch (Exception exc)
+            {
+                throw;
             }
 
             poupanca.Depositar(valor);
@@ -63,15 +67,14 @@ namespace refatoracao.R52.ReplaceErrorCodeWithException.depois
             this.saldo = saldoInicial;
         }
 
-        public int Sacar(decimal valor)
+        public void Sacar(decimal valor)
         {
             if (valor > Saldo)
             {
-                return -1;
+                throw new ArgumentException("Saldo insuficiente");
             }
 
             this.saldo -= valor;
-            return 0;
         }
 
         public void Depositar(decimal valor)

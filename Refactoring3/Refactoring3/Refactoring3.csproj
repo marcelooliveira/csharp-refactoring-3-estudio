@@ -73,6 +73,8 @@
     <Compile Include="Aula3\R53.ReplaceExceptionwithTest\depois\ContaCorrente.cs" />
     <Compile Include="Aula4\R54.PullUpMethod\antes\Cliente.cs" />
     <Compile Include="Aula4\R54.PullUpMethod\depois\Cliente.cs" />
+    <Compile Include="Aula4\R55.PullUpConstructorBody\antes\Cliente.cs" />
+    <Compile Include="Aula4\R55.PullUpConstructorBody\depois\Cliente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

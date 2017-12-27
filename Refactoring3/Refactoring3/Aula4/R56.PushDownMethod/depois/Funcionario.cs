@@ -63,6 +63,36 @@ namespace refatoracao.R56.PushDownMethod.depois
                     throw new ArgumentException("Tipo de funcionário inválido");
             }
         }
+
+        public void DefinirComissao(decimal comissao)
+        {
+            if (comissao < 0)
+            {
+                throw new ArgumentException("Comissão não pode ser negativa");
+            }
+
+            if (comissao > .25m)
+            {
+                throw new ArgumentException("Comissão não pode exceder 25%");
+            }
+
+            this.comissao = comissao;
+        }
+
+        public void DefinirBonus(decimal bonus)
+        {
+            if (bonus < 0)
+            {
+                throw new ArgumentException("Bônus não pode ser negativo");
+            }
+
+            if (bonus > salario)
+            {
+                throw new ArgumentException("Bônus não pode ser maior que o salário");
+            }
+
+            this.bonus = bonus;
+        }
     }
 
     class Engenheiro : Funcionario
@@ -79,21 +109,6 @@ namespace refatoracao.R56.PushDownMethod.depois
         {
             this.tipo = TipoFuncionario.Vendedor;
         }
-
-        public void DefinirComissao(decimal comissao)
-        {
-            if (comissao < 0)
-            {
-                throw new ArgumentException("Comissão não pode ser negativa");
-            }
-
-            if (comissao > .25m)
-            {
-                throw new ArgumentException("Comissão não pode exceder 25%");
-            }
-
-            this.comissao = comissao;
-        }
     }
 
     class Gerente : Funcionario
@@ -101,21 +116,6 @@ namespace refatoracao.R56.PushDownMethod.depois
         public Gerente(string nome, decimal salario) : base(nome, salario)
         {
             this.tipo = TipoFuncionario.Gerente;
-        }
-
-        public void DefinirBonus(decimal bonus)
-        {
-            if (bonus < 0)
-            {
-                throw new ArgumentException("Bônus não pode ser negativo");
-            }
-
-            if (bonus > salario)
-            {
-                throw new ArgumentException("Bônus não pode ser maior que o salário");
-            }
-
-            this.bonus = bonus;
         }
     }
 

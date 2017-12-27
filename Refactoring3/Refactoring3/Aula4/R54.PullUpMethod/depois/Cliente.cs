@@ -15,12 +15,12 @@ namespace refatoracao.R54.PullUpMethod.depois
             Console.WriteLine("Clientes");
             Console.WriteLine("========");
 
-            Console.WriteLine($"{cliente1.Nome}");
-            Console.WriteLine($"{cliente1.GetEndereco()}");
-            Console.WriteLine("========");
-
-            Console.WriteLine($"{cliente2.Nome}");
-            Console.WriteLine($"{cliente2.GetEndereco()}");
+            foreach (var cliente in clientes)
+            {
+                Console.WriteLine($"{cliente.Nome}");
+                Console.WriteLine($"{cliente.GetEndereco()}");
+                Console.WriteLine("========");
+            }
         }
     }
 
@@ -38,6 +38,11 @@ namespace refatoracao.R54.PullUpMethod.depois
             this.logradouro = logradouro;
             this.numero = numero;
         }
+
+        public string GetEndereco()
+        {
+            return $"{logradouro} {numero}";
+        }
     }
 
     class PessoaFisica : Cliente
@@ -50,11 +55,6 @@ namespace refatoracao.R54.PullUpMethod.depois
         {
             this.cpf = cpf;
         }
-
-        public string GetEndereco()
-        {
-            return $"{logradouro} {numero}";
-        }
     }
 
     class PessoaJuridica : Cliente
@@ -66,11 +66,6 @@ namespace refatoracao.R54.PullUpMethod.depois
             : base(nome, logradouro, numero)
         {
             this.cnpj = cnpj;
-        }
-
-        public string GetEndereco()
-        {
-            return $"{logradouro} {numero}";
         }
     }
 

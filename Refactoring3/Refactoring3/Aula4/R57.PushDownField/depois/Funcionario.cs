@@ -37,12 +37,6 @@ namespace refatoracao.R57.PushDownField.depois
         protected decimal salario;
         public decimal Salario => salario;
 
-        protected decimal comissao;
-        public decimal Comissao => comissao;
-
-        protected decimal bonus;
-        public decimal Bonus => bonus;
-
         protected Funcionario(string nome, decimal salario)
         {
             this.nome = nome;
@@ -75,6 +69,9 @@ namespace refatoracao.R57.PushDownField.depois
 
     class Vendedor : Funcionario
     {
+        private decimal comissao;
+        public decimal Comissao => comissao;
+
         public Vendedor(string nome, decimal salario) : base(nome, salario)
         {
             this.tipo = TipoFuncionario.Vendedor;
@@ -98,6 +95,9 @@ namespace refatoracao.R57.PushDownField.depois
 
     class Gerente : Funcionario
     {
+        private decimal bonus;
+        public decimal Bonus => bonus;
+
         public Gerente(string nome, decimal salario) : base(nome, salario)
         {
             this.tipo = TipoFuncionario.Gerente;

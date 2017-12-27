@@ -19,7 +19,7 @@ namespace refatoracao.R56.PushDownMethod.antes
         }
     }
 
-    class Funcionario
+    abstract class Funcionario
     {
         public enum TipoFuncionario
         {

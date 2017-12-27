@@ -22,11 +22,11 @@ namespace refatoracao.R58.ExtractSubclass.antes
         private Funcionario funcionario;
         private bool ehTrabalho;
 
-        public ItemDeServico(int quantidade, decimal precoUnitario, bool ehTrabalho, Funcionario funcionario)
+        public ItemDeServico(int quantidade, decimal precoUnitario, bool ehMaoDeObra, Funcionario funcionario)
         {
             this.quantidade = quantidade;
             this.precoUnitario = precoUnitario;
-            this.ehTrabalho = ehTrabalho;
+            this.ehTrabalho = ehMaoDeObra;
             this.funcionario = funcionario;
         }
         public decimal GetPrecoTotal()

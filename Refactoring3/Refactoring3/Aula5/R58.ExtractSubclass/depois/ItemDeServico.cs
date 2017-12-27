@@ -9,68 +9,41 @@ namespace refatoracao.R58.ExtractSubclass.depois
         void Main()
         {
             Funcionario joao = new Funcionario(50);
-            MaoDeObra maoDeObra = new MaoDeObra(5, joao);
-            MateriaPrima materiaPrima = new MateriaPrima(15, 10);
-            decimal totalDoServico = maoDeObra.GetPrecoTotal() 
-                + materiaPrima.GetPrecoTotal();
+            ItemDeServico s1 = new ItemDeServico(5, 0, true, joao);
+            ItemDeServico s2 = new ItemDeServico(15, 10, false, null);
+            decimal totalDoServico = s1.GetPrecoTotal() + s2.GetPrecoTotal();
         }
     }
 
-    abstract class ItemDeServico
+    class ItemDeServico
     {
         private int quantidade;
+        private decimal precoUnitario;
+        private Funcionario funcionario;
+        private bool ehTrabalho;
 
-        protected ItemDeServico(int quantidade)
+        public ItemDeServico(int quantidade, decimal precoUnitario, bool ehMaoDeObra, Funcionario funcionario)
         {
             this.quantidade = quantidade;
+            this.precoUnitario = precoUnitario;
+            this.ehTrabalho = ehMaoDeObra;
+            this.funcionario = funcionario;
         }
-
         public decimal GetPrecoTotal()
         {
             return quantidade * GetPrecoUnitario();
         }
-
         public int GetQuantidade()
         {
             return quantidade;
         }
-
-        public abstract decimal GetPrecoUnitario();
-    }
-
-    class MateriaPrima : ItemDeServico
-    {
-        private decimal precoUnitario;
-
-        public MateriaPrima(int quantidade, decimal precoUnitario) : base(quantidade)
+        public decimal GetPrecoUnitario()
         {
-            this.precoUnitario = precoUnitario;
+            return (ehTrabalho) ? funcionario.GetCusto() : precoUnitario;
         }
-
-        public override decimal GetPrecoUnitario()
-        {
-            return precoUnitario;
-        }
-    }
-
-    class MaoDeObra : ItemDeServico
-    {
-        private Funcionario funcionario;
-
-        public MaoDeObra(int quantidade, Funcionario funcionario)
-            : base(quantidade)
-        {
-            this.funcionario = funcionario;
-        }
-
         public Funcionario GetFuncionario()
         {
             return funcionario;
-        }
-
-        public override decimal GetPrecoUnitario()
-        {
-            return funcionario.GetCusto();
         }
     }
 

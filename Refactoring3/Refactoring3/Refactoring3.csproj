@@ -77,6 +77,8 @@
     <Compile Include="Aula4\R55.PullUpConstructorBody\depois\Cliente.cs" />
     <Compile Include="Aula4\R56.PushDownMethod\antes\Funcionario.cs" />
     <Compile Include="Aula4\R56.PushDownMethod\depois\Funcionario.cs" />
+    <Compile Include="Aula4\R57.PushDownField\antes\Funcionario.cs" />
+    <Compile Include="Aula4\R57.PushDownField\depois\Funcionario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -108,6 +110,8 @@
     <Content Include="Aula4\R54.PullUpMethod\depois\PullUpMethod2.png" />
     <Content Include="Aula4\R56.PushDownMethod\antes\PushDownMethod.png" />
     <Content Include="Aula4\R56.PushDownMethod\depois\PushDownMethod2.png" />
+    <Content Include="Aula4\R57.PushDownField\antes\PushDownField.png" />
+    <Content Include="Aula4\R57.PushDownField\depois\PushDownField2.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

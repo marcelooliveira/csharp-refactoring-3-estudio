@@ -20,13 +20,13 @@ namespace refatoracao.R58.ExtractSubclass.depois
         private int quantidade;
         private decimal precoUnitario;
         private Funcionario funcionario;
-        private bool ehTrabalho;
+        private bool ehMaoDeObra;
 
         public ItemDeServico(int quantidade, decimal precoUnitario, bool ehMaoDeObra, Funcionario funcionario)
         {
             this.quantidade = quantidade;
             this.precoUnitario = precoUnitario;
-            this.ehTrabalho = ehMaoDeObra;
+            this.ehMaoDeObra = ehMaoDeObra;
             this.funcionario = funcionario;
         }
         public decimal GetPrecoTotal()
@@ -39,7 +39,7 @@ namespace refatoracao.R58.ExtractSubclass.depois
         }
         public decimal GetPrecoUnitario()
         {
-            return (ehTrabalho) ? funcionario.GetCusto() : precoUnitario;
+            return (ehMaoDeObra) ? funcionario.GetCusto() : precoUnitario;
         }
         public Funcionario GetFuncionario()
         {

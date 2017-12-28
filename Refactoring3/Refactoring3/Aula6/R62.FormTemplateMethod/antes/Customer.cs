@@ -59,7 +59,7 @@ namespace refatoracao.R62.FormTemplateMethod.antes
             this.cliente = cliente;
         }
 
-        internal object GetResumo()
+        internal string GetResumo()
         {
             var resultado = new StringBuilder();
             resultado.AppendLine("<h1>Locações de <em>" + cliente.Nome + "</em></h1>");
@@ -82,7 +82,7 @@ namespace refatoracao.R62.FormTemplateMethod.antes
             this.cliente = cliente;
         }
 
-        internal object GetResumo()
+        internal string GetResumo()
         {
             var resultado = new StringBuilder();
             resultado.AppendLine("Resumo de locações de " + cliente.Nome);

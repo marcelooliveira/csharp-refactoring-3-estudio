@@ -87,6 +87,7 @@
     <Compile Include="Aula5\R60.ExtractInterface\antes\CPFFormatter.cs" />
     <Compile Include="Aula5\R60.ExtractInterface\depois\CNPJFormatter.cs" />
     <Compile Include="Aula5\R60.ExtractInterface\depois\CPFFormatter.cs" />
+    <Compile Include="Aula5\R60.ExtractInterface\depois\Program.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

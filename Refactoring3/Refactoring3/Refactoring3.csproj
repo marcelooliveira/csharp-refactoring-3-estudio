@@ -92,6 +92,8 @@
     <Compile Include="Aula5\R60.ExtractInterface\depois\Program.cs" />
     <Compile Include="Aula6\R61.CollapseHierarchy\antes\Funcionario.cs" />
     <Compile Include="Aula6\R61.CollapseHierarchy\depois\Funcionario.cs" />
+    <Compile Include="Aula6\R62.FormTemplateMethod\antes\Customer.cs" />
+    <Compile Include="Aula6\R62.FormTemplateMethod\depois\Customer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

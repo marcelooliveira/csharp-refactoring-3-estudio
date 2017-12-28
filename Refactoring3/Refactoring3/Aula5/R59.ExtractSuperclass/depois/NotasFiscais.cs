@@ -58,26 +58,18 @@ namespace refatoracao.Parte3.Aula5.R59.ExtractSuperclass.depois
         }
     }
 
-    abstract class BasePedido
+    class Pedido
     {
-        protected string nomeCliente;
+        readonly string nomeCliente;
         public string NomeCliente => nomeCliente;
 
-        protected string enderecoEntrega;
+        readonly string enderecoEntrega;
         public string EnderecoEntrega => enderecoEntrega;
 
-        protected readonly List<Item> itens = new List<Item>();
+        private readonly List<Item> itens = new List<Item>();
         internal IReadOnlyCollection<Item> Itens => new ReadOnlyCollection<Item>(itens);
 
 
-        public decimal ValorDosItens()
-        {
-            return itens.Sum(i => i.Total);
-        }
-    }
-
-    class Pedido : BasePedido
-    {
         void Add(Item item)
         {
             itens.Add(item);
@@ -94,15 +86,31 @@ namespace refatoracao.Parte3.Aula5.R59.ExtractSuperclass.depois
             this.enderecoEntrega = enderecoEntrega;
         }
 
+        public decimal ValorDosItens()
+        {
+            return itens.Sum(i => i.Total);
+        }
     }
 
-    class NotaFiscal : BasePedido
+    class NotaFiscal
     {
+        readonly string nomeCliente;
+        public string NomeCliente => nomeCliente;
+
+        readonly string enderecoEntrega;
+        public string EnderecoEntrega => enderecoEntrega;
+
+        private readonly List<Item> itens = new List<Item>();
+        internal IReadOnlyCollection<Item> Itens => new ReadOnlyCollection<Item>(itens);
+
         public NotaFiscal(Pedido pedido)
         {
-            this.nomeCliente = pedido.NomeCliente;
-            this.enderecoEntrega = pedido.EnderecoEntrega;
             this.itens.AddRange(pedido.Itens);
+        }
+
+        public decimal ValorDosItens()
+        {
+            return itens.Sum(i => i.Total);
         }
 
         public decimal ValorDosImpostos()

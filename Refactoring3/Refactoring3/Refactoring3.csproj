@@ -81,6 +81,8 @@
     <Compile Include="Aula4\R57.PushDownField\depois\Funcionario.cs" />
     <Compile Include="Aula5\R58.ExtractSubclass\antes\ItemDeServico.cs" />
     <Compile Include="Aula5\R58.ExtractSubclass\depois\ItemDeServico.cs" />
+    <Compile Include="Aula5\R59.ExtractSuperclass\antes\NotasFiscais.cs" />
+    <Compile Include="Aula5\R59.ExtractSuperclass\depois\NotasFiscais.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,6 +118,8 @@
     <Content Include="Aula4\R57.PushDownField\depois\PushDownField2.png" />
     <Content Include="Aula5\R58.ExtractSubclass\antes\ExtractSubclass.png" />
     <Content Include="Aula5\R58.ExtractSubclass\depois\ExtractSubclass2.png" />
+    <Content Include="Aula5\R59.ExtractSuperclass\antes\antes.png" />
+    <Content Include="Aula5\R59.ExtractSuperclass\depois\depois.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

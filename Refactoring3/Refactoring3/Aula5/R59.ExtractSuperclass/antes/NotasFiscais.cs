@@ -95,7 +95,10 @@ namespace refatoracao.Parte3.Aula5.R59.ExtractSuperclass.antes
     class NotaFiscal
     {
         readonly string nomeCliente;
+        public string NomeCliente => nomeCliente;
+
         readonly string enderecoEntrega;
+        public string EnderecoEntrega => enderecoEntrega;
 
         private readonly List<Item> itens = new List<Item>();
         internal IReadOnlyCollection<Item> Itens => new ReadOnlyCollection<Item>(itens);

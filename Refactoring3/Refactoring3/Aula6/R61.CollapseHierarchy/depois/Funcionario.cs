@@ -10,7 +10,7 @@ namespace refatoracao.R61.CollapseHierarchy.depois
     {
         void Main()
         {
-            var vendedor = new Funcionario("Walter White", "555-12345", "666-65432");
+            var empregado = new Funcionario("Walter White", "555-12345", "666-65432");
         }
     }
 
@@ -19,6 +19,7 @@ namespace refatoracao.R61.CollapseHierarchy.depois
         public string Nome { get; set; }
         public string TelefoneFixo { get; set; }
         public string Celular { get; set; }
+        public string CodigoFuncional { get; set; }
 
         public Funcionario(string nome, string telefoneFixo, string celular)
         {

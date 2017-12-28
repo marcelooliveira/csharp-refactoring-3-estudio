@@ -8,7 +8,7 @@ namespace refatoracao.R61.CollapseHierarchy.antes
     {
         void Main()
         {
-            var vendedor = new Vendedor("Walter White", "555-12345", "666-65432");
+            var empregado = new Empregado("Walter White", "555-12345", "666-65432");
         }
     }
 
@@ -26,9 +26,11 @@ namespace refatoracao.R61.CollapseHierarchy.antes
         }
     }
 
-    class Vendedor : Funcionario
+    class Empregado : Funcionario
     {
-        public Vendedor(string nome, string telefoneFixo, string celular) : base(nome, telefoneFixo, celular)
+        public string CodigoFuncional { get; set; }
+
+        public Empregado(string nome, string telefoneFixo, string celular) : base(nome, telefoneFixo, celular)
         {
         }
     }

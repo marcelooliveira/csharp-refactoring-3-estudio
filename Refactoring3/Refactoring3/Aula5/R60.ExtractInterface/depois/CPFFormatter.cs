@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace refatoracao.R60.ExtractInterface.depois
 {
-    public class CPFFormatter : IFormatter
+    public class CPFFormatter
     {
         protected readonly string formatted;
         protected readonly string formattedReplacement;

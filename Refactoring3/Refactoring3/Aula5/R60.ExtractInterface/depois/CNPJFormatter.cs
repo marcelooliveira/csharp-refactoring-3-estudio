@@ -5,14 +5,14 @@ using System.Text.RegularExpressions;
 
 namespace refatoracao.R60.ExtractInterface.depois
 {
-    public class CNPJFormatter : IFormatter
+    public class CNPJFormatter
     {
         protected readonly string formatted;
         protected readonly string formattedReplacement;
         protected readonly string unformatted;
         protected readonly string unformattedReplacement;
 
-        public CNPJFormatter() 
+        public CNPJFormatter()
             : this(@"(\d{2})[.](\d{3})[.](\d{3})\/(\d{4})-(\d{2})", "$1.$2.$3/$4-$5", @"(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})", "$1$2$3$4$5")
         {
         }

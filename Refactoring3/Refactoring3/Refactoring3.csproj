@@ -85,6 +85,7 @@
     <Compile Include="Aula5\R59.ExtractSuperclass\depois\NotasFiscais.cs" />
     <Compile Include="Aula5\R60.ExtractInterface\antes\CNPJFormatter.cs" />
     <Compile Include="Aula5\R60.ExtractInterface\antes\CPFFormatter.cs" />
+    <Compile Include="Aula5\R60.ExtractInterface\antes\Program.cs" />
     <Compile Include="Aula5\R60.ExtractInterface\depois\CNPJFormatter.cs" />
     <Compile Include="Aula5\R60.ExtractInterface\depois\CPFFormatter.cs" />
     <Compile Include="Aula5\R60.ExtractInterface\depois\Program.cs" />

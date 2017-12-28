@@ -8,8 +8,8 @@ namespace refatoracao.R62.FormTemplateMethod.depois
     {
         public Cliente()
         {
-            var resumo = GetResumo();
-            var resumoHTML = GetResumoHTML();
+            var resumo = new Resumo(this).GetResumo();
+            var resumoHTML = new ResumoHTML(this).GetResumo();
         }
 
         public string GetResumo()
@@ -64,6 +64,52 @@ namespace refatoracao.R62.FormTemplateMethod.depois
         {
             get { return nome; }
             set { nome = value; }
+        }
+    }
+
+    internal class ResumoHTML
+    {
+        private Cliente cliente;
+
+        public ResumoHTML(Cliente cliente)
+        {
+            this.cliente = cliente;
+        }
+
+        internal object GetResumo()
+        {
+            var resultado = new StringBuilder();
+            resultado.AppendLine("<h1>Locações de <em>" + cliente.Nome + "</em></h1>");
+            foreach (var locacao in cliente.Locacoes)
+            {
+                resultado.AppendLine(locacao.Filme.Titulo + "<br/>");
+            }
+            resultado.AppendLine("<p> Você deve: <em>R$ " + cliente.ValorTotal.ToString() + "</em></p>");
+            resultado.AppendLine("Você ganhou: " + cliente.PontosDeFidelidade.ToString() + "</em> pontos.");
+            return resultado.ToString();
+        }
+    }
+
+    internal class Resumo
+    {
+        private Cliente cliente;
+
+        public Resumo(Cliente cliente)
+        {
+            this.cliente = cliente;
+        }
+
+        internal object GetResumo()
+        {
+            var resultado = new StringBuilder();
+            resultado.AppendLine("Resumo de locações de " + cliente.Nome);
+            foreach (var locacao in cliente.Locacoes)
+            {
+                resultado.AppendLine("\t" + locacao.Filme.Titulo);
+            }
+            resultado.AppendLine("Total devido: " + cliente.ValorTotal.ToString());
+            resultado.AppendLine($"Você ganhou: {cliente.PontosDeFidelidade.ToString()} pontos");
+            return resultado.ToString();
         }
     }
 

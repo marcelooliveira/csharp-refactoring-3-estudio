@@ -8,7 +8,7 @@ namespace refatoracao.Parte3.Aula6.R64.ReplaceDelegationWithInheritance.depois
     {
         void Teste()
         {
-            var imovel = 
+            var imovel =
                 new Apartamento("Rua dos Bobos, No. 0", 100000, 200);
         }
     }
@@ -19,7 +19,7 @@ namespace refatoracao.Parte3.Aula6.R64.ReplaceDelegationWithInheritance.depois
         private decimal valorImovel;
 
         public string Endereco => endereco;
-        public decimal Valor { get => valorImovel; set => valorImovel = value; }
+        public decimal ValorImovel { get => valorImovel; set => valorImovel = value; }
 
         public Imovel(string endereco, decimal valorImovel)
         {
@@ -28,12 +28,17 @@ namespace refatoracao.Parte3.Aula6.R64.ReplaceDelegationWithInheritance.depois
         }
     }
 
-    class Apartamento : Imovel
+    class Apartamento
     {
+        private readonly Imovel imovel;
         private decimal valorCondominio;
 
-        public Apartamento(string endereco, decimal valorImovel, decimal valorCondominio) : base(endereco, valorImovel)
+        public string Endereco => imovel.Endereco;
+        public decimal ValorImovel { get => imovel.ValorImovel; set => imovel.ValorImovel = value; }
+
+        public Apartamento(string endereco, decimal valorImovel, decimal valorCondominio)
         {
+            this.imovel = new Imovel(endereco, valorImovel);
             this.valorCondominio = valorCondominio;
         }
     }

@@ -40,8 +40,6 @@ namespace refatoracao.Parte3.Aula6.R63.ReplaceInheritanceWithDelegation.antes
         private readonly String endereco;
         private decimal valor;
 
-        public string NomeProprietario { get => this.Nome; }
-
         public Imovel(string endereco, decimal valor, string nomeProprietario, string cpfProprietario) 
             : base(nomeProprietario, cpfProprietario)
         {

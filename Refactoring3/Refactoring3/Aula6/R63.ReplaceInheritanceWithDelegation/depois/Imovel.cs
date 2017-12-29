@@ -4,15 +4,13 @@ using System.Text;
 
 namespace refatoracao.Parte3.Aula6.R63.ReplaceInheritanceWithDelegation.depois
 {
-    //Para saber mais: Composition over inheritance
-    //https://en.wikipedia.org/wiki/Composition_over_inheritance
-
     class Programa
     {
         void Teste()
         {
-            var proprietario = new Proprietario("Vinicius de Moraes", "123456789-00");
-            var imovel = new Imovel("Rua dos Bobos, No. 0", 100000, proprietario);
+            var imovel =
+                new Imovel("Rua dos Bobos, No. 0", 100000,
+                            "Vinicius de Moraes", "123456789-00");
         }
     }
 
@@ -37,19 +35,16 @@ namespace refatoracao.Parte3.Aula6.R63.ReplaceInheritanceWithDelegation.depois
         }
     }
 
-    class Imovel
+    class Imovel : Proprietario
     {
-        private Proprietario proprietario;
-        internal Proprietario Proprietario { get => proprietario; set => proprietario = value; }
-
         private readonly String endereco;
         private decimal valor;
 
-        public string NomeProprietario { get => proprietario.Nome; }
+        public string NomeProprietario { get => this.Nome; }
 
-        public Imovel(string endereco, decimal valor, Proprietario proprietario)
+        public Imovel(string endereco, decimal valor, string nomeProprietario, string cpfProprietario)
+            : base(nomeProprietario, cpfProprietario)
         {
-            this.proprietario = proprietario;
             this.endereco = endereco;
             this.valor = valor;
         }
